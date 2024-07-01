@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Shape class 생성
+        class Shape {
+            constructor(w,h) {
+                this.w = w;
+                this.h = h;
+            }
+            getArea() {
+                return this.w * this.h
+            }
+        }
+        let rec1 = new Shape(3,4);
+        console.log(rec1.getArea())
+
+        //Rectangle class 생성 (shape 상속)
+        class Rectangle extends Shape {
+            constructor(w,h) {
+                super(w,h);
+            }
+            getArea() {
+                return this.w * this.h
+            }
+            getDiagonal() {
+                return Math.sqrt((this.w*this.w) + (this.h*this.h));
+            }
+        }
+        let rectangle = new Rectangle(3,4);
+        console.log(rectangle.getArea());
+        console.log(rectangle.getDiagonal());
+
+        //Triangle class 생성
+        class Triangle{
+            constructor(w,h){
+                this.w = w;
+                this.h = h;
+            }
+            getArea(){
+                return (this.w * this.h)/2
+            }
+        }
+        let triangle1 = new Triangle (4,5);
+        console.log(triangle1.getArea());
+
+        //Circle class 생성 (Shape 상속)
+        class Circle extends Shape {
+            constructor(w,h,r){
+                super(w,h);
+                this.r = r;
+            }
+            getArea () {
+                return (this.r)*(this.r)*3.14;
+            }
+        }
+        let circle = new Circle (4,5,2);
+        console.log(circle.getArea());
+    </script>
+</body>
+</html>

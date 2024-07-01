@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function colorChange(color,delay) {
+            return new Promise ((resolve) => {
+                setTimeout(() => {
+                    document.body.style.backgroundColor=color;
+                    resolve();
+                },delay);
+            });
+        }
+
+
+
+        //then체이닝
+        /*
+        colorChange("red",1000)
+        .then(() => {
+            return colorChange("orange",2000);
+        })
+        .then(() => {
+            return colorChange("yellow",1000);
+        })
+        .then(() => {
+            return colorChange("green",2000);
+        })
+        .then(() => {
+            return colorChange("blue",1000);
+        })
+        */
+
+
+        async function exec(){
+            await colorChange('red', 1000);
+            await colorChange('orange', 2000);
+            await colorChange('yellow', 1000);
+            await colorChange('green', 2000);
+            await colorChange('blue', 1000);
+        }
+        
+        exec();
+    </script>
+</body>
+</html>

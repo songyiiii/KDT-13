@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //배열 구조 분해 할당
+
+        //배열
+        const lists = ['apple','grape',function(){}];
+
+        //기존 방식
+        console.log(lists[0],lists[1],lists[2]);
+
+        //배열 구조 분해(순서가 매우 중요)
+        //나중에 변수 값을 변경하려면 let으로 선언 변경하지 않으려면 const로 선언
+        let [item1,item2,item3,item4='peach'] = lists;
+        //let item1 = "apple" 과 동일
+
+        console.log("item1 :"+item1,"item2 :"+item2,"item3 :"+item3,"item4 :"+item4);
+
+        
+
+        //교환 (많이 사용하진 않음)
+        let x = 1, y = 2;
+        [x,y]=[y,x];
+        console.log(x,y)
+
+        //객체 구조분해 할당
+        //객체
+        const obj = {
+            name : "한송이",
+            age : 30,
+            gender : "W",
+            friends :['이몽룡','성춘향'],
+            hello: function(){
+                console.log('안녕하세요');
+            },
+            "k-13" : "13기", //대괄호 표기법으로 출력
+            city : "용인",
+        };
+
+        //객체 값 바꾸기
+        obj.age = 20;
+        console.log(obj);
+        
+        console.log(obj.friends[0]);
+        console.log(obj.name);
+        console.log(obj['name']); 
+        console.log(obj['k-13']); //대괄호 표기법 : 동적접근, 특수문자, 띄어쓰기일때 사용
+
+        //객체 구조 분해할당
+        //key:value 형태에서 key값이 매우 중요 순서는 상관없음
+        const {name,age,gender,friends,hello,city = "서울"} = obj;
+        const {name:newName} = obj;
+        console.log(name);
+        console.log(name,newName,city);
+    </script>
+</body>
+</html>
